@@ -44,30 +44,33 @@ but it contains multiple syntax errors that prevent it from being parsed.
 // 🔍 Provided JSON File with Errors
 // ============================================
 
-const invalidBookingJSON = `
+// Original ***
+
+
+const invalidBookingJSON = 
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15" // comma added
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      name: "Alice Johnson", // added quotation marks around "name" key
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
-      "email": "bob.smith@example"
+      "age": undefined,  // undefined does not work in JSON
+      "email": "bob.smith@example" // email isnt completed
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking",] // extra comma at the end of the array
   }
 }
-`;
+; // semi-colon is not allowed in JSON
 
 
 // ============================================
@@ -81,6 +84,34 @@ const invalidBookingJSON = `
   • Why is it a problem in JSON?
   • What did you change to fix it?
 */
+
+// My Fixes***
+
+{
+  "invalidBookingJSON":
+{
+  "hotelName": "Grand City Hotel",
+  "checkInDate": "2024-05-15",
+  "checkOutDate": "2024-05-20",
+  "guests": [
+    {
+      "name": "Alice Johnson",
+      "age": 30,
+      "email": "alice.johnson@example.com"
+    },
+    {
+      "name": "Bob Smith",
+      "age": 21,
+      "email": "bob.smith@example.com"
+    }
+  ],
+  "roomDetails": {
+    "type": "Suite",
+    "pricePerNight": 200,
+    "amenities": ["WiFi", "Breakfast", "Parking"]
+  }
+}
+}
 
 
 // ============================================
